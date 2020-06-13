@@ -79,6 +79,12 @@ export function registerUsers(app: Express) {
    *          "application/json":
    *            schema:
    *              $ref: "#/components/schemas/ErrorMessage"
+   *      "404":
+   *        description: "Not Found"
+   *        content:
+   *          "application/json":
+   *            schema:
+   *              $ref: "#/components/schemas/ErrorMessage"
    *      "500":
    *        description: "Unexpected error"
    *        content:

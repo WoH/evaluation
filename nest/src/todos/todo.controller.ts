@@ -51,7 +51,7 @@ export class TodoController {
   /**
    * @todo Add implementation, fix route, parameters, documentation and a fix the return type annotation
    */
-  @Delete("/:id")
+  @Delete()
   async deleteTodo() {
     // get the Todo
     // handle not found

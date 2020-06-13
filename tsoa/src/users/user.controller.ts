@@ -10,11 +10,7 @@ import {
 import { inject } from "inversify";
 import { sign } from "jsonwebtoken";
 import { provideSingleton } from "../util/provideSingleton";
-import {
-  ErrorMessage,
-  ValidateErrorMessage,
-  UnauthorizedErrorMessage,
-} from "../util/errors";
+import { ErrorMessage } from "../util/errors";
 
 import { User } from "./user.entity";
 import { UserService, UserLoginDto, ConflictError } from "./user.service";
@@ -31,16 +27,16 @@ export class UsersController extends Controller {
    * Add a new user.
    */
   @Post()
-  @Response<ValidateErrorMessage>(422, "Validation Failed")
+  @Response<ErrorMessage>(400, "Validation Failed")
   public async createUser(
     @Body() requestBody: UserLoginDto,
-    @Res() validationError: TsoaResponse<422, ValidateErrorMessage>
+    @Res() validationError: TsoaResponse<400, ErrorMessage>
   ): Promise<User> {
     try {
       return await this.userService.create(requestBody);
     } catch (err) {
       if (err instanceof ConflictError) {
-        return validationError(422, {
+        return validationError(400, {
           message: "Validation failed",
           details: { name: "username already taken" },
         });
@@ -52,7 +48,7 @@ export class UsersController extends Controller {
   /**
    * Login
    */
-  @Response<UnauthorizedErrorMessage>(401, "Unauthorized")
+  @Response<ErrorMessage>(401, "Unauthorized")
   @Post("/login")
   public async login(
     @Body() body: { name: string; password: string },

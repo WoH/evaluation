@@ -44,6 +44,13 @@ export class UserController {
     }
   }
 
+  @ApiCreatedResponse({
+    schema: {
+      type: "object",
+      properties: { token: { type: "string" } },
+      required: ["token"],
+    },
+  })
   @ApiUnauthorizedResponse(defaultErrorSchema)
   @ApiBadRequestResponse(defaultErrorSchema)
   @ApiNotFoundResponse(defaultErrorSchema)

@@ -15,8 +15,5 @@ RUN yarn install --production=false
 # Bundle app source
 COPY . .
 
-RUN yarn run build
-RUN yarn install
-
 EXPOSE 3001
 CMD [ "yarn", "start" ]
