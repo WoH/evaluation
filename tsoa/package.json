@@ -1,0 +1,38 @@
+{
+  "name": "todo-application",
+  "version": "0.0.1",
+  "description": "A simple Todo Application that manages the todos of users",
+  "main": "build/src/server.js",
+  "author": "Wolfgang Hobmaier <wolfgang.hobmaier@sensoring.de> (https://www.sensoring.de)",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "yarn install && concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+    "build": "tsoa spec-and-routes && tsc",
+    "start": "node build/src/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "inversify": "^5.0.1",
+    "inversify-binding-decorators": "^4.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.2.1",
+    "reflect-metadata": "^0.1.10",
+    "swagger-ui-express": "^4.1.4",
+    "tsoa": "^3.2.1",
+    "typeorm": "0.2.25"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.6",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/node": "^8.0.29",
+    "@types/swagger-ui-express": "^4.1.2",
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4",
+    "ts-node": "3.3.0",
+    "typescript": "^3.9.3"
+  }
+}
