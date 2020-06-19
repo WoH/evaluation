@@ -14,6 +14,7 @@ RUN yarn install --production=false
 
 # Bundle app source
 COPY . .
+RUN touch build/openapi.json
 
 EXPOSE 3001
 CMD [ "yarn", "start" ]
