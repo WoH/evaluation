@@ -14,6 +14,7 @@ RUN yarn install --production=false
 
 # Bundle app source
 COPY . .
+RUN yarn run tsoa spec-and-routes
 
 EXPOSE 3001
 CMD [ "yarn", "start" ]
