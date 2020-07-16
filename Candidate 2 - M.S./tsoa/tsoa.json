@@ -1,0 +1,22 @@
+{
+  "entryFile": "src/app.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["src/**/*.controller.ts"],
+  "spec": {
+    "outputDirectory": "build",
+    "yaml": false,
+    "specVersion": 3,
+    "securityDefinitions": {
+      "jwt": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "routes": {
+    "routesDir": "build",
+    "iocModule": "src/di",
+    "authenticationModule": "src/authentication"
+  }
+}
